@@ -1,7 +1,8 @@
-import { Stack } from "expo-router";
+import { SplashScreen, Stack } from "expo-router";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Button, Text, Image, StyleSheet } from "react-native";
-import { useState } from "react";
+import { Button, Text, Image, StyleSheet, useColorScheme } from "react-native";
+import { useEffect, useState } from "react";
+import { useFonts } from "expo-font";
 
 function LogoTitle() {
   return (
@@ -13,6 +14,21 @@ function LogoTitle() {
 }
 
 export default function RootLayout() {
+  const colorScheme = useColorScheme();
+  const [loaded] = useFonts({
+    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+  });
+
+  useEffect(() => {
+    if (loaded) {
+      // SplashScreen.hideAsync();
+    }
+  }, [loaded]);
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <Stack
       screenOptions={{
@@ -25,20 +41,16 @@ export default function RootLayout() {
         },
       }}
     >
+      <Stack.Screen name="index" />
+
       {/* This is global details, If header is on ,then it is visible everywhere  */}
       <Stack.Screen
         name="(tabs)"
-        options={{ headerShown: false,
-           headerTitle: "Global Header" }}
+        options={{ headerShown: false, headerTitle: "Global Header" }}
       />
+      {/*   ***  */}
+
       <Stack.Screen name="+not-found" />
-      <Stack.Screen
-        name="modal"
-        options={{
-          presentation: "modal",
-          headerTitle: "Model Header",
-        }}
-      />
     </Stack>
   );
 }

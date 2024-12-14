@@ -27,11 +27,13 @@ const ActionButtons = () => {
 const styles = StyleSheet.create({
   maincontainer: {
     height: 100,
-    borderWidth: 1,
+
     backgroundColor: "#e9ecf2",
-    borderRadius: 8,
+    borderRadius: 10,
     marginVertical: 8,
     padding: 10,
+    borderWidth: 0.5,
+    borderBlockColor: "grey",
   },
 
   container: {

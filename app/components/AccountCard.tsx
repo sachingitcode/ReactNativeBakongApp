@@ -23,12 +23,18 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 8,
     overflow: "hidden",
-    marginVertical: 8,
+    marginVertical: 10,
     justifyContent: "center",
     padding: 16,
+    margin: 0,
   },
-  type: { fontSize: 16, color: "#fff", fontWeight: "bold", marginBottom: 4 },
-  balance: { fontSize: 16, color: "#fff", fontWeight: "bold", marginBottom: 4 },
+  type: { fontSize: 20, color: "black", fontWeight: "bold", marginBottom: 4 },
+  balance: {
+    fontSize: 20,
+    color: "black",
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
 });
 
 export default AccountCard;

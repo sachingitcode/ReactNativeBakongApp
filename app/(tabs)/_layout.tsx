@@ -42,6 +42,28 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
+        name="homescreen"
+        options={{
+          headerShown: true,
+          title: "Wallet",
+          //   headerTitle: (props) => <LogoTitle {...props} />,
+          headerRight: () => (
+            <Button
+              onPress={() => setCount((c) => c + 1)}
+              title="Update count"
+            />
+          ),
+
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons
+              name={focused ? "wallet" : "wallet-outline"}
+              color={color}
+              size={24}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: "Home",
@@ -69,7 +91,6 @@ export default function TabLayout() {
           ),
         }}
       />
-
       <Tabs.Screen
         name="setting"
         options={{
@@ -84,29 +105,24 @@ export default function TabLayout() {
           ),
         }}
       />
-
+      {/*  */}
       <Tabs.Screen
-        name="homescreen"
+        name="setting1"
         options={{
-          headerShown: true,
-          title: "Transation",
-          headerTitle: (props) => <LogoTitle {...props} />,
-          headerRight: () => (
-            <Button
-              onPress={() => setCount((c) => c + 1)}
-              title="Update count"
-            />
-          ),
-
+          // route: RouteProp<ParamListBase, string>;
+          //         navigation: any;
+          headerShown: false,
+          title: "Login",
           tabBarIcon: ({ color, focused }) => (
             <Ionicons
-              name={focused ? "cash-sharp" : "cash-outline"}
+              name={focused ? "settings" : "settings-outline"}
               color={color}
               size={24}
             />
           ),
         }}
       />
+      {/*  */}
     </Tabs>
   );
 }
